@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>อาจารย์แผนก</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        main {
+            margin: 0 auto;
+            width: 90%; /* กำหนดขนาดของ main */
+        }
+
+        /* จัดการภาพ */
+        .image-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* จัดเป็นกริดที่ปรับขนาดอัตโนมัติ */
+            gap: 20px; /* ระยะห่างระหว่างภาพ */
+            align-items: center; /* จัดให้ภาพอยู่กลาง */
+            text-align: center; /* จัดข้อความให้อยู่กลาง */
+        }
+
+        .image-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* จัดภาพและข้อความให้อยู่กลาง */
+        }
+
+        .image-item img {
+            width: 100%; /* กำหนดให้ภาพเต็มพื้นที่กริด */
+            max-width: 250px; /* กำหนดขนาดสูงสุดของภาพ */
+            height: auto; /* ปรับความสูงอัตโนมัติให้คงสัดส่วน */
+            border: 1px solid #000; /* กรอบรูปภาพ */
+        }
+
+        .image-item h3 {
+            margin-top: 10px; /* ระยะห่างระหว่างภาพและข้อความ */
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>อาจารย์แผนก</h1>
+    </header>
+
+    <nav>
+        <a href="index.html">หน้าแรก</a>
+        <a href="about.html">อาจารย์แผนก</a>
+        <a href="students.html">รายชื่อนักศึกษา</a>
+        <a href="activities.html">กิจกรรมของแผนก</a>
+    </nav>
+
+    <main>
+        <!-- ภาพและข้อความใต้ภาพ -->
+        <div class="image-container">
+            <div class="image-item">
+                <img src= "image/สกรีนช็อต 2025-01-21 164752.png") alt="กิจกรรม 1">
+                <h3>นายสุทธิรักษ์ ขำหาญ</h3>
+            </div>
+            <div class="image-item">
+                <img src="image/full_00.jpg" alt="กิจกรรม 2">
+                <h3>นายฉลอง ลักษณะวิเชียร</h3>
+            </div>
+            <div class="image-item">
+                <img src="image/full_01.jpg" alt="กิจกรรม 3">
+                <h3>นายจำรัส นกเพ็ชร</h3>
+            </div>
+            <div class="image-item">
+                <img src="image/full_08.jpg" alt="กิจกรรม 4">
+                <h3>นายสุชาติ อนันทวัฒน์</h3>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>ลิงก์ Facebook แผนก:</p>
+        <a href="https://shorturl.asia/QRHX4" target="_blank">
+            <img src="image/124010.png" 
+                 alt="Facebook แผนกอิเล็กทรอนิกส์"
+                 width="40">
+        </a>
+    </footer>
+</body>
+</html>

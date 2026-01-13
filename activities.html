@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>กิจกรรมของแผนก</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        main {
+            width: 90%;
+            margin: auto;
+        }
+
+        .activity {
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        /* ===== Slider ===== */
+        .slider {
+            position: relative;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .slider img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.6);
+            color: #fff;
+            border: none;
+            font-size: 30px;
+            padding: 10px;
+            cursor: pointer;
+            opacity: 0;
+            transition: 0.3s;
+        }
+
+        .slider:hover .nav {
+            opacity: 1;
+        }
+
+        .nav.left { left: 10px; }
+        .nav.right { right: 10px; }
+
+        /* dots */
+        .dots {
+            margin-top: 10px;
+        }
+
+        .dot {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            background: #bbb;
+            border-radius: 50%;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+
+        .dot.active {
+            background: #003366;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>กิจกรรมของแผนก</h1>
+</header>
+
+<nav>
+    <a href="index.html">หน้าแรก</a>
+    <a href="about.html">อาจารย์แผนก</a>
+    <a href="students.html">รายชื่อนักศึกษา</a>
+    <a href="activities.html">กิจกรรมของแผนก</a>
+</nav>
+
+<main>
+
+    <!-- ===== Esports ===== -->
+    <div class="activity">
+        <div class="slider">
+            <button class="nav left" onclick="prevImage('esport')">&#10094;</button>
+            <img id="esport" src="image/410a4b53-8ba6-4942-8591-3b174e36d79a.jpg">
+            <button class="nav right" onclick="nextImage('esport')">&#10095;</button>
+        </div>
+        <div class="dots" id="dots-esport"></div>
+        <h3>Esports</h3>
+    </div>
+
+    <!-- ===== ทำบุญแผนก ===== -->
+    <div class="activity">
+        <div class="slider">
+            <button class="nav left" onclick="prevImage('merit')">&#10094;</button>
+            <img id="merit" src="image/471361645_1128995468932217_2148361636350125350_n.jpg">
+            <button class="nav right" onclick="nextImage('merit')">&#10095;</button>
+        </div>
+        <div class="dots" id="dots-merit"></div>
+        <h3>ทำบุญแผนก</h3>
+    </div>
+
+    <!-- ===== Christmas ===== -->
+    <div class="activity">
+        <div class="slider">
+            <button class="nav left" onclick="prevImage('christmas')">&#10094;</button>
+            <img id="christmas" src="image/471568820_1129004155598015_5128379749121221523_n.jpg">
+            <button class="nav right" onclick="nextImage('christmas')">&#10095;</button>
+        </div>
+        <div class="dots" id="dots-christmas"></div>
+        <h3>Christmas</h3>
+    </div>
+
+</main>
+
+<footer>
+    <p>ลิงก์ Facebook แผนก:</p>
+    <a href="https://shorturl.asia/QRHX4" target="_blank">
+        <img src="image/124010.png" width="40">
+    </a>
+</footer>
+
+<!-- ===== JavaScript ===== -->
+<script>
+const sliders = {
+    esport: {
+        images: [
+            "image/410a4b53-8ba6-4942-8591-3b174e36d79a.jpg",
+            "image/6678c013-eeb2-4527-934d-2fc1e4551e2e.jpg",
+            "image/606000877_1361798562409315_643778101654284239_n.jpg",
+            "image/605202245_1361798012409370_7703808333973438165_n.jpg",
+        ],
+        index: 0
+    },
+    merit: {
+        images: [
+            "image/471361645_1128995468932217_2148361636350125350_n.jpg",
+            "image/471494010_1128995135598917_2676703326609421094_n.jpg",
+            "image/605632973_1358936056028899_2363648119625860110_n.jpg",
+            "image/605718861_1358936209362217_4641605244468147353_n.jpg",
+            "image/603855103_1358936106028894_3212316454731311892_n.jpg",
+            "image/605116645_1358934752695696_8528993940180487350_n.jpg"
+        ],  
+        index: 0
+    },
+    christmas: {
+        images: [
+            "image/471568820_1129004155598015_5128379749121221523_n.jpg",
+            "image/471430380_1129004332264664_4830784616561974339_n.jpg"
+        ],
+        index: 0
+    }
+};
+
+for (let key in sliders) {
+    const dots = document.getElementById("dots-" + key);
+    sliders[key].images.forEach((_, i) => {
+        const dot = document.createElement("span");
+        dot.className = "dot";
+        dot.onclick = () => showImage(key, i);
+        dots.appendChild(dot);
+    });
+    showImage(key, 0);
+    setInterval(() => nextImage(key), 4000);
+}
+
+function showImage(name, i) {
+    sliders[name].index = i;
+    document.getElementById(name).src = sliders[name].images[i];
+    document.querySelectorAll("#dots-" + name + " .dot")
+        .forEach((d, idx) => d.classList.toggle("active", idx === i));
+}
+
+function nextImage(name) {
+    const s = sliders[name];
+    showImage(name, (s.index + 1) % s.images.length);
+}
+
+function prevImage(name) {
+    const s = sliders[name];
+    showImage(name, (s.index - 1 + s.images.length) % s.images.length);
+}
+</script>
+
+</body>
+</html>

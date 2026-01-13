@@ -1,0 +1,122 @@
+/* การตั้งค่าพื้นฐาน */
+body, html {
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-image: url("image/pngtree-blue-gradient-geometric-business-card-background-image_239805.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    font-family: Arial, sans-serif;
+}
+
+/* ส่วน Header */
+header {
+    background-image: url("image/สกรีนช็อต 2025-01-21 172330.png");
+    background-size: cover;
+    background-position: center;
+    color: #000000;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+/* ส่วน Navigation */
+nav {
+    margin: 0;
+    padding: 1rem;
+    background: #3c0263;
+    text-align: center;
+}
+
+nav a {
+    color: #ffffff;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* เนื้อหา */
+main {
+    flex: 1;
+    padding: 20px;
+    max-width: 1100px; /* ปรับให้พอสไลด์ */
+    margin: 0 auto;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1rem 0;
+    background: #3c0263;
+    color: #ffffff;
+    width: 100%;
+}
+
+/* Slider */
+.slider {
+    position: relative;
+    width: 1000px;
+    margin: auto;
+}
+
+.slider img {
+    width: 100%;
+    display: block;
+}
+
+/* ปุ่มซ้าย-ขวา */
+.nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    font-size: 32px;
+    padding: 10px 14px;
+    cursor: pointer;
+
+    /* ซ่อนปุ่ม */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.nav.left {
+    left: 10px;
+}
+
+.nav.right {
+    right: 10px;
+}
+
+/* เมื่อเอาเมาส์เข้าใกล้รูปหรือ slider */
+.slider:hover .nav {
+    opacity: 1;
+}
+
+/* จุดบอกลำดับ */
+#dots {
+    text-align: center;
+    margin: 12px 0;
+}
+
+.dot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background: #bbb;
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.dot.active {
+    background: #003366;
+}

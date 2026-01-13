@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>หน้าแรก</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h2>แผนกอิเล็กทรอนิกส์ วิทยาลัยเทคนิคสุโขทัย</h2>
+</header>
+
+<nav>
+    <a href="index.html">หน้าแรก</a>
+    <a href="about.html">อาจารย์แผนก</a>
+    <a href="students.html">รายชื่อนักศึกษา</a>
+    <a href="activities.html">กิจกรรมของแผนก</a>
+</nav>
+
+<main>
+    <div class="slider">
+        <button class="nav left" onclick="prevImage()">&#10094;</button>
+    
+        <img id="slideImage"
+             src="image/xxx.jpg"
+             alt="ภาพกิจกรรมแผนกอิเล็กทรอนิกส์">
+    
+        <button class="nav right" onclick="nextImage()">&#10095;</button>
+    </div>
+    
+    <!-- จุดบอกลำดับ -->
+    <div id="dots"></div>
+
+    <h2>สามารถติดตามข่าวสาร แผนกอิเล็กทรอนิกส์ จังหวัดสุโขทัยได้ที่นี่</h2>
+    <p>ลิงก์อยู่ใต้เว็บไซต์</p>
+</main>
+
+<footer>
+    <p>ลิงก์ Facebook แผนก:</p>
+    <a href="https://shorturl.asia/QRHX4" target="_blank">
+        <img src="image/124010.png" alt="Facebook" width="40">
+    </a>
+</footer>
+
+<script>
+    let images = [
+        "image/605146438_1358934366029068_2795033705858080401_n.jpg",
+        "image/605718861_1358936209362217_4641605244468147353_n.jpg",
+        "image/606000877_1361798562409315_643778101654284239_n.jpg",
+        "image/2025-01-20 213226.png",
+        "image/605202245_1361798012409370_7703808333973438165_n.jpg"
+    ];
+
+    let index = 0;
+    const slideImage = document.getElementById("slideImage");
+    const dotsContainer = document.getElementById("dots");
+
+    // สร้างจุดบอกลำดับ
+    images.forEach((_, i) => {
+        const dot = document.createElement("span");
+        dot.className = "dot";
+        dot.onclick = () => showImage(i);
+        dotsContainer.appendChild(dot);
+    });
+
+    function showImage(i) {
+        index = i;
+        slideImage.src = images[index];
+        updateDots();
+    }
+
+    function nextImage() {
+        showImage((index + 1) % images.length);
+    }
+
+    function prevImage() {
+        showImage((index - 1 + images.length) % images.length);
+    }
+
+    function updateDots() {
+        document.querySelectorAll(".dot").forEach((dot, i) => {
+            dot.classList.toggle("active", i === index);
+        });
+    }
+
+    // 🔁 เปลี่ยนอัตโนมัติทุก 4 วินาที
+    setInterval(nextImage, 4000);
+
+    // เริ่มต้น
+    showImage(0);
+</script>
