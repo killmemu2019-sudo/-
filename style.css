@@ -4,47 +4,47 @@ body, html {
     padding: 0;
     line-height: 1.6;
     height: 100%;
-    display: flex;
-    flex-direction: column;
-    background-image: url("image/pngtree-blue-gradient-geometric-business-card-background-image_239805.jpg");
-    background-attachment: fixed;
-    background-size: cover;
-    background-position: center;
-    font-family: Arial, sans-serif;
+    display: flex; /* ใช้ flexbox */
+    flex-direction: column; /* จัดให้เป็นแนวตั้ง */
+    background-image: url("image/pngtree-blue-gradient-geometric-business-card-background-image_239805.jpg"); /* ภาพพื้นหลัง */
+    background-attachment: fixed; /* ให้พื้นหลังนิ่ง */
+    background-size: cover; /* ให้ครอบคลุมทั้งหน้า */
+    background-position: center; /* จัดตรงกลาง */
+    font-family: Arial, sans-serif; /* ฟอนต์เริ่มต้น */
 }
 
 /* ส่วน Header */
 header {
-    background-image: url("image/สกรีนช็อต 2025-01-21 172330.png");
+    background-image: url("image/%E0%B8%AA%E0%B8%81%E0%B8%A3%E0%B8%B5%E0%B8%99%E0%B8%8A%E0%B9%87%E0%B8%AD%E0%B8%95%202025-01-21%20172330.png"); /* ภาพพื้นหลัง Header */
     background-size: cover;
     background-position: center;
-    color: #000000;
-    padding: 1rem 0;
-    text-align: center;
+    color: #000000; /* สีข้อความ */
+    padding: 1rem 0; /* ระยะห่างรอบ Header */
+    text-align: center; /* จัดข้อความให้อยู่กลาง */
 }
 
 /* ส่วน Navigation */
 nav {
     margin: 0;
-    padding: 1rem;
-    background: #3c0263;
+    padding: 1rem; /* ระยะห่างภายใน nav */
+    background: #3c0263; /* สีพื้นหลัง nav */
     text-align: center;
 }
 
 nav a {
-    color: #ffffff;
-    text-decoration: none;
-    margin: 0 15px;
-    font-weight: bold;
+    color: #ffffff; /* สีลิงค์ */
+    text-decoration: none; /* ลบเส้นใต้ */
+    margin: 0 15px; /* ระยะห่างซ้ายขวา */
+    font-weight: bold; /* ให้ข้อความหนา */
 }
 
 nav a:hover {
-    text-decoration: underline;
+    text-decoration: underline; /* เพิ่มเส้นใต้เมื่อ hover */
 }
 
 /* เนื้อหา */
 main {
-    flex: 1;
+    flex: 1; /* ให้เต็มพื้นที่ว่าง */
     padding: 20px;
     max-width: 1100px; /* ปรับให้พอสไลด์ */
     margin: 0 auto;
@@ -53,70 +53,70 @@ main {
 /* Footer */
 footer {
     text-align: center;
-    padding: 1rem 0;
-    background: #3c0263;
-    color: #ffffff;
+    padding: 1rem 0; /* ระยะห่างภายใน Footer */
+    background: #3c0263; /* สีพื้นหลัง Footer */
+    color: #ffffff; /* สีข้อความ */
     width: 100%;
 }
 
 /* Slider */
 .slider {
-    position: relative;
+    position: relative; /* ตำแหน่งสัมพัทธ์ */
     width: 1000px;
     margin: auto;
 }
 
 .slider img {
-    width: 100%;
+    width: 100%; /* เต็มความกว้าง */
     display: block;
 }
 
 /* ปุ่มซ้าย-ขวา */
 .nav {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.6);
-    color: white;
-    border: none;
+    position: absolute; /* ตำแหน่งแน่นอน */
+    top: 50%; /* จัดให้กลางแนวตั้ง */
+    transform: translateY(-50%); /* ปรับตำแหน่งแนวตั้ง */
+    background-color: rgba(0, 0, 0, 0.6); /* สีพื้นหลังกึ่งโปร่งใส */
+    color: white; /* สีไอคอน */
+    border: none; /* ไม่มีกรอบ */
     font-size: 32px;
     padding: 10px 14px;
-    cursor: pointer;
+    cursor: pointer; /* เคอร์เซอร์ชี้ */
 
     /* ซ่อนปุ่ม */
-    opacity: 0;
-    transition: opacity 0.3s ease;
+    opacity: 0; /* มองไม่เห็น */
+    transition: opacity 0.3s ease; /* เอฟเฟกต์เปลี่ยนแปลง */
 }
 
 .nav.left {
-    left: 10px;
+    left: 10px; /* ปุ่มซ้าย */
 }
 
 .nav.right {
-    right: 10px;
+    right: 10px; /* ปุ่มขวา */
 }
 
 /* เมื่อเอาเมาส์เข้าใกล้รูปหรือ slider */
 .slider:hover .nav {
-    opacity: 1;
+    opacity: 1; /* แสดงปุ่ม */
 }
 
 /* จุดบอกลำดับ */
 #dots {
     text-align: center;
-    margin: 12px 0;
+    margin: 12px 0; /* ระยะห่างรอบจุด */
 }
 
 .dot {
-    display: inline-block;
-    width: 12px;
-    height: 12px;
-    background: #bbb;
-    border-radius: 50%;
-    margin: 0 5px;
-    cursor: pointer;
+    display: inline-block; /* จัดแนวนอน */
+    width: 12px; /* ความกว้าง */
+    height: 12px; /* ความสูง */
+    background: #bbb; /* สีจุด */
+    border-radius: 50%; /* ให้เป็นวงกลม */
+    margin: 0 5px; /* ระยะห่างระหว่างจุด */
+    cursor: pointer; /* เคอร์เซอร์ชี้ */
 }
 
 .dot.active {
-    background: #003366;
+    background: #003366; /* สีจุดที่ใช้งาน */
 }
